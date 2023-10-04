@@ -1,0 +1,11 @@
+import xxx = libxxx%lib{xxx}
+
+./: lib{xxx}: $xxx
+{
+  cxx.export.libs = $xxx
+  bin.lib.prefix = # No prefix
+}
+
+./: exe{xxx}: {hxx ixx txx cxx}{**} $xxx testscript
+
+cxx.poptions =+ "-I$out_root" "-I$src_root"
